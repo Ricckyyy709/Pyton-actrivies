@@ -1,12 +1,12 @@
-def roman_to_int(a):
-    roman={'I' :1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
-    int_form=0
-    for i in range(len(a)):
-        if i+1<len(a) and roman[a[i]]<roman[a[i+1]]:
-            int_form-=roman[a[i]]
-        else:
-            int_form+=roman[a[i]]
-        return int_form
+import random
+import string
 
-a=input("enter a roman numeral ")
-print("interger form of",a, "is",roman_to_int(a))
+def generate_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for i in range(length))
+    return password
+
+if __name__ == "__main__":
+    password_length = int(input("Enter the desired password length: "))
+    new_password = generate_password(password_length)
+    print("Generated password:", new_password)
